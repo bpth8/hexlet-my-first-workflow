@@ -1,0 +1,21 @@
+name: Hello World Workflow
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Make
+      run: sudo apt-get install -y make
+
+    - name: Run say-hello command
+      run: make say-hello
